@@ -387,3 +387,11 @@ RUN apt-get clean && \
 
 # Set default work directory
 WORKDIR /var/www
+
+# install LaTex
+
+
+RUN apt-get install -y software-properties-common \
+    && add-apt-repository ppa:jonathonf/texlive-2016 \
+    && apt-get update \
+    && apt-get install -y texlive
