@@ -22,6 +22,7 @@ services:
                 - INSTALL_NODE=false
                 - INSTALL_YARN=false
                 - INSTALL_DRUSH=false
+                - INSTALL_PHPREDIS=true
                 - INSTALL_AEROSPIKE_EXTENSION=false
                 - INSTALL_V8JS_EXTENSION=false
                 - COMPOSER_GLOBAL_INSTALL=false
@@ -54,10 +55,10 @@ services:
                 - INSTALL_MONGO=false
                 - INSTALL_ZIP_ARCHIVE=false
                 - INSTALL_BCMATH=false
-                - INSTALL_PHPREDIS=true
                 - INSTALL_MEMCACHED=false
                 - INSTALL_OPCACHE=false
                 - INSTALL_EXIF=false
+                - INSTALL_PHPREDIS=true
                 - INSTALL_AEROSPIKE_EXTENSION=false
                 - CODEIGNITER=false
             dockerfile: Dockerfile-70
@@ -336,6 +337,13 @@ services:
         build: ./selenium
         ports:
             - "4444:4444"
+
+#    php-worker:
+#        build:
+#            context: ./php-fpm
+#        volumes_from:
+#            - application
+#        command: php artisan queue:work
 
 ### Volumes Setup ###########################################
 

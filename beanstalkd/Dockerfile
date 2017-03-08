@@ -13,4 +13,8 @@ VOLUME /var/lib/beanstalkd/data
 
 EXPOSE 11300
 
+RUN echo "BEANSTALKD_EXTRA=\"-z 524280\"" >> /etc/default/beanstalkd
+RUN service beanstalkd restart
+
 CMD ["/usr/bin/beanstalkd"]
+
